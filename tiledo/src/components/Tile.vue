@@ -8,9 +8,9 @@
 </script>
 
 <template>
-  <div class="tile">
-        <input type="text" v-bind:value="Math.PI" />
-        <button>{{ Math.PI }}</button>
+  <div class="tileAndButtonContainer">
+        <textarea value="Math.PI aklsd; sa;ldsa lsalasdk laslk ldslsdgk gddd kdflk df ;" />
+      <button>Add to-do</button>
   </div>
 </template>
 
@@ -19,9 +19,23 @@
 .tile {
   min-height: 10em;
   min-width: 16em;
+  border-radius: 0.5em;
+  border: 1px solid black;
+}
+
+.tileAndButtonContainer textarea {
+  display: block;
+  min-height: 10em;
+  min-width: 16em;
+  margin: 0;
+  text-align: center;
   border: 2px solid #a94646;
   border-radius: 0.5em;
-  text-align: center;
+}
+
+.tileAndButtonContainer button {
+    display: block;
+    margin: 1em auto;
 }
 
 .greetings h3 {

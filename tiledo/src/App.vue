@@ -15,9 +15,11 @@ import Tile from './components/Tile.vue'
     </div>
   </header>
 
+  <!--
   <main>
     <TheWelcome />
   </main>
+  -->
 </template>
 
 <style scoped>
