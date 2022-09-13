@@ -1,16 +1,29 @@
 <script setup>
 
-defineProps({
-  todoText: String,
-  index: Number
-})
+import Tile from './Tile.vue'
+
+import { reactive } from 'vue'
+
+const state = reactive({"todos": ["pluh", "meh"]});
+
+const addTodo = function(todo) {
+    state.todos.push(newTodo.value);
+};
 
 </script>
 
 <template>
-  <div class="tileAndButtonContainer">
-      <textarea :value="todoText" />
-  </div>
+  <Tile
+    v-for="(todoText, index) in state.todos"
+    :todoText="todoText"
+    :index="index"
+  />
+
+  <input v-model="newTodo" />
+
+  <button @click="addTodo">
+   Add todo
+  </button>
 </template>
 
 <style scoped>

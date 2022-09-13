@@ -1,12 +1,12 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import Tile from './components/Tile.vue'
+import TileDoes from './components/TileDoes.vue'
 </script>
 
 <template>
   <header>
-    <Tile />
+    <TileDoes />
 
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
