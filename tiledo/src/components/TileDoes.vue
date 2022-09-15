@@ -2,11 +2,13 @@
 
 import Tile from './Tile.vue'
 
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const state = reactive({"todos": ["pluh", "meh"]});
 
-const addTodo = function(todo) {
+const newTodo = ref("");
+
+function addTodo() {
     state.todos.push(newTodo.value);
 };
 
@@ -19,7 +21,7 @@ const addTodo = function(todo) {
     :index="index"
   />
 
-  <input v-model="newTodo" />
+  <input type="text" v-model="newTodo" />
 
   <button @click="addTodo">
    Add todo
