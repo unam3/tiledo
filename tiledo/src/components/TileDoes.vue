@@ -36,6 +36,14 @@ function addTodone(todoText) {
         class="pluh"
       />
   </div>
+  
+  <div class="addTodoInterface">
+      <input type="text" v-model="newTodo" />
+
+      <button @click="addTodo">
+       Add todo
+      </button>
+  </div>
 
   <div class="tileContainer">
       <Tile
@@ -45,13 +53,6 @@ function addTodone(todoText) {
       />
   </div>
 
-  <!--
-  <input type="text" v-model="newTodo" />
-
-  <button @click="addTodo">
-   Add todo
-  </button>
-  -->
 </template>
 
 <style scoped>
@@ -71,6 +72,11 @@ function addTodone(todoText) {
     margin: 1em auto;
 }
 
+.addTodoInterface {
+    margin: 4em auto;
+}
+
+/*
 .greetings h3 {
   text-align: center;
 }
@@ -80,5 +86,6 @@ function addTodone(todoText) {
     text-align: left;
   }
 }
+*/
 </style>
 
