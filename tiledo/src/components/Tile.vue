@@ -1,50 +1,48 @@
 <script setup>
 
 defineProps({
-  todoText: String,
-  index: Number
+  todoText: String
 })
 
 </script>
 
 <template>
-  <div class="tileAndButtonContainer">
+  <div class="tile">
+      <!--
       <textarea :value="todoText" />
+      -->
+      {{ todoText }}
   </div>
 </template>
 
 <style scoped>
 
+/*
 .tile {
+  padding: 3em;
   min-height: 10em;
   min-width: 16em;
   border-radius: 0.5em;
   border: 1px solid black;
 }
 
+.tileAndButtonContainer {
+  padding: 2em;
+}
+
 .tileAndButtonContainer textarea {
-  display: block;
+*/
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
   min-height: 10em;
   min-width: 16em;
-  margin: 0;
-  text-align: center;
+  margin: 2em;
   border: 2px solid #a94646;
   border-radius: 0.5em;
 }
 
-.tileAndButtonContainer button {
-    display: block;
-    margin: 1em auto;
-}
-
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h3 {
-    text-align: left;
-  }
-}
 </style>
 

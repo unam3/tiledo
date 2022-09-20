@@ -4,7 +4,10 @@ import Tile from './Tile.vue'
 
 import { reactive, ref } from 'vue'
 
-const state = reactive({"todos": ["pluh", "meh"]});
+const state = reactive({
+    "todos": ["0", "1", "2", "1", "2"],
+    "done": ["-3 213  21lkj21 kl123kjj21k3 ", "-2", "-1", "1", "2", "1", "2"]
+});
 
 const newTodo = ref("");
 
@@ -12,39 +15,55 @@ function addTodo() {
     state.todos.push(newTodo.value);
 };
 
+function removeTodo(index) {
+    const removedTodos = state.todos.splice(index, 1);
+
+    addTodone(removedTodos[0]);
+};
+
+function addTodone(todoText) {
+    state.done.push(todoText);
+};
+
 </script>
 
 <template>
-  <Tile
-    v-for="(todoText, index) in state.todos"
-    :todoText="todoText"
-    :index="index"
-  />
+  <div class="tileContainer">
+      <Tile
+        v-for="(todoText, index) in state.done"
+        :todoText="todoText"
+        :index="index"
+        class="pluh"
+      />
+  </div>
 
+  <div class="tileContainer">
+      <Tile
+        v-for="(todoText, index) in state.todos"
+        :todoText="todoText"
+        @click="removeTodo(index)"
+      />
+  </div>
+
+  <!--
   <input type="text" v-model="newTodo" />
 
   <button @click="addTodo">
    Add todo
   </button>
+  -->
 </template>
 
 <style scoped>
 
-.tile {
-  min-height: 10em;
-  min-width: 16em;
-  border-radius: 0.5em;
-  border: 1px solid black;
+.tileContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
-.tileAndButtonContainer textarea {
-  display: block;
-  min-height: 10em;
-  min-width: 16em;
-  margin: 0;
-  text-align: center;
-  border: 2px solid #a94646;
-  border-radius: 0.5em;
+.pluh {
+    background-color: #eee8aa;
 }
 
 .tileAndButtonContainer button {
