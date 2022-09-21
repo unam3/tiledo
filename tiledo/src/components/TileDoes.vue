@@ -38,7 +38,7 @@ function addTodone(todoText) {
   </div>
   
   <div class="addTodoInterface">
-      <input type="text" v-model="newTodo" />
+      <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
 
       <button @click="addTodo">
        Add todo
