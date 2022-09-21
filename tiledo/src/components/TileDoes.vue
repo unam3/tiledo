@@ -11,28 +11,28 @@ const state = reactive({
 
 const newTodo = ref("");
 
-function addTodo() {
+const addTodo = () => {
     state.todos.push(newTodo.value);
 };
 
-function removeTodo(index) {
+const removeTodo = (index) => {
     const removedTodos = state.todos.splice(index, 1);
 
     addToDone(removedTodos[0]);
 };
 
-function addToDone(todoText) {
+const addToDone = (todoText) => {
     state.done.push(todoText);
 };
 
-function clearHistory() {
+const clearHistory = () => {
     // is this allowed?
     //state.done = [];
 
     state.done.splice(0);
 };
 
-function clearTodos() {
+const clearTodos = () => {
     state.todos.splice(0);
 };
 </script>
