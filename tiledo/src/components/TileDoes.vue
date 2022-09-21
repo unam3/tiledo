@@ -79,6 +79,7 @@ const clearTodos = () => {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin: auto;
 }
 
 .tileAndButtonContainer button {
