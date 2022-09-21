@@ -63,7 +63,7 @@ const clearTodos = () => {
       </button>
   </div>
 
-  <div class="clickTip">
+  <div class="clickTip" v-if="state.todos.length">
     Click on todo item to put it in history.
   </div>
 
