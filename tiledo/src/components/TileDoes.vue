@@ -18,13 +18,19 @@ function addTodo() {
 function removeTodo(index) {
     const removedTodos = state.todos.splice(index, 1);
 
-    addTodone(removedTodos[0]);
+    addToDone(removedTodos[0]);
 };
 
-function addTodone(todoText) {
+function addToDone(todoText) {
     state.done.push(todoText);
 };
 
+function clearHistory() {
+    // is this allowed?
+    //state.done = [];
+
+    state.done.splice(0);
+};
 </script>
 
 <template>
@@ -42,6 +48,10 @@ function addTodone(todoText) {
 
       <button @click="addTodo">
        Add todo
+      </button>
+
+      <button @click="clearHistory" :disabled="state.done.length == 0">
+       Clear history
       </button>
   </div>
 
