@@ -40,8 +40,19 @@ defineProps({
   min-height: 10em;
   min-width: 16em;
   margin: 2em;
+  padding: 2em;
   border: 2px solid #a94646;
   border-radius: 0.5em;
+}
+
+.tile:hover {
+  background-color: #eee8aa;
+  border-color: #808080;
+}
+
+.pluh {
+  background-color: #eee8aa;
+  border-color: #808080;
 }
 
 </style>

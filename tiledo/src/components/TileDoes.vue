@@ -63,10 +63,6 @@ function addTodone(todoText) {
     justify-content: flex-start;
 }
 
-.pluh {
-    background-color: #eee8aa;
-}
-
 .tileAndButtonContainer button {
     display: block;
     margin: 1em auto;
