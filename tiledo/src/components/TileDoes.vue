@@ -31,6 +31,10 @@ function clearHistory() {
 
     state.done.splice(0);
 };
+
+function clearTodos() {
+    state.todos.splice(0);
+};
 </script>
 
 <template>
@@ -47,11 +51,15 @@ function clearHistory() {
       <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
 
       <button @click="addTodo">
-       Add todo
+        Add todo
       </button>
 
       <button @click="clearHistory" :disabled="state.done.length == 0">
-       Clear history
+        Clear history
+      </button>
+
+      <button @click="clearTodos" :disabled="state.todos.length == 0">
+        Clear todos
       </button>
   </div>
 
