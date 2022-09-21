@@ -63,6 +63,10 @@ const clearTodos = () => {
       </button>
   </div>
 
+  <div class="clickTip">
+    Click on todo item to put it in history.
+  </div>
+
   <div class="tileContainer">
       <Tile
         v-for="(todoText, index) in state.todos"
@@ -89,6 +93,10 @@ const clearTodos = () => {
 
 .addTodoInterface {
     margin: 4em auto;
+}
+
+.clickTip {
+    margin: 2em auto;
 }
 
 /*
