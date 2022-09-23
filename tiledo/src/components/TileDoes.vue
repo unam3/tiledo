@@ -25,7 +25,7 @@ const addTodoClick = () => {
     newTodo.value = "";
 };
 
-const removeTodo = (index) => {
+const putIntoHistory = (index) => {
     state.hasPutTodoInHistory = true;
 
     const removedTodos = state.todos.splice(index, 1);
@@ -83,7 +83,7 @@ const clearTodos = () => {
       <Tile
         v-for="(todoText, index) in state.todos"
         :todoText="todoText"
-        @click="removeTodo(index)"
+        @click="putIntoHistory(index)"
       />
   </div>
 
