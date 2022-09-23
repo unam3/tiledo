@@ -6,7 +6,10 @@ import { reactive, ref } from 'vue'
 
 const state = reactive({
     "todos": ["0", "1", "2", "1", "2"],
-    "done": ["-3 213  21lkj21 kl123kjj21k3 ", "-2", "-1", "1", "2", "1", "2"]
+    "done": ["-3 213  21lkj21 kl123kjj21k3 ", "-2", "-1", "1", "2", "1", "2"],
+    "done": [],
+    "todos": [],
+    "hasPutTodoInHistory": false
 });
 
 const newTodo = ref("");
@@ -23,6 +26,8 @@ const addTodoClick = () => {
 };
 
 const removeTodo = (index) => {
+    state.hasPutTodoInHistory = true;
+
     const removedTodos = state.todos.splice(index, 1);
 
     addToDone(removedTodos[0]);
@@ -70,7 +75,7 @@ const clearTodos = () => {
       </button>
   </div>
 
-  <div class="clickTip" v-if="state.todos.length">
+  <div class="clickTip" v-if="!state.hasPutTodoInHistory && state.todos.length">
     Click on todo item to put it in history.
   </div>
 
