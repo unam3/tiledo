@@ -15,6 +15,13 @@ const addTodo = () => {
     state.todos.push(newTodo.value);
 };
 
+const addTodoClick = () => {
+    addTodo();
+    
+    // is this the way to do it right in vue?
+    newTodo.value = "";
+};
+
 const removeTodo = (index) => {
     const removedTodos = state.todos.splice(index, 1);
 
@@ -48,9 +55,9 @@ const clearTodos = () => {
   </div>
   
   <div class="addTodoInterface">
-      <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
+      <input type="text" v-model="newTodo" @keyup.enter="addTodoClick" />
 
-      <button @click="addTodo">
+      <button @click="addTodoClick">
         Add todo
       </button>
 
