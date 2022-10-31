@@ -10,8 +10,31 @@ const newTodoInput = ref();
 const focusNewTodoInput = () => newTodoInput.value.focus();
 
 onMounted(() => {
+    const serializedTodos = window.localStorage.getItem("todos");
+    const serializedDone = window.localStorage.getItem("done");
+
+    if (serializedTodos) {
+        state.todos = JSON.parse(serializedTodos);
+    }
+    
+    if (serializedDone) {
+        state.done = JSON.parse(serializedDone);
+    }
+    
     focusNewTodoInput();
-});
+
+
+    window.addEventListener(
+        "beforeunload",
+        () => {
+            window.localStorage.setItem("todos", JSON.stringify(state.todos));
+
+            window.localStorage.setItem("done", JSON.stringify(state.done));
+        }
+    );
+})
+
+
 
 
 const state = reactive({
