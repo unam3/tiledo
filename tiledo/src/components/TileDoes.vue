@@ -25,7 +25,10 @@ const state = reactive({
 const newTodo = ref("");
 
 const addTodo = () => {
-    state.todos.push(newTodo.value);
+
+    if (newTodo.value != "")
+
+        state.todos.push(newTodo.value);
 };
 
 const addTodoClick = () => {
