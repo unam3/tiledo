@@ -2,7 +2,17 @@
 
 import Tile from './Tile.vue'
 
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
+
+
+const newTodoInput = ref();
+
+const focusNewTodoInput = () => newTodoInput.value.focus();
+
+onMounted(() => {
+    focusNewTodoInput();
+});
+
 
 const state = reactive({
     "todos": ["0", "1", "2", "1", "2"],
@@ -23,6 +33,8 @@ const addTodoClick = () => {
     
     // is this the way to do it right in vue?
     newTodo.value = "";
+
+    focusNewTodoInput();
 };
 
 const putIntoHistory = (index) => {
@@ -31,6 +43,8 @@ const putIntoHistory = (index) => {
     const removedTodos = state.todos.splice(index, 1);
 
     addToDone(removedTodos[0]);
+
+    focusNewTodoInput();
 };
 
 const addToDone = (todoText) => {
@@ -42,11 +56,17 @@ const clearHistory = () => {
     //state.done = [];
 
     state.done.splice(0);
+
+    focusNewTodoInput();
 };
 
 const clearTodos = () => {
     state.todos.splice(0);
+
+    focusNewTodoInput();
 };
+
+
 </script>
 
 <template>
@@ -60,7 +80,7 @@ const clearTodos = () => {
   </div>
   
   <div class="addTodoInterface">
-      <input type="text" v-model="newTodo" @keyup.enter="addTodoClick" />
+      <input type="text" ref="newTodoInput" v-model="newTodo" @keyup.enter="addTodoClick" />
 
       <button @click="addTodoClick">
         Add todo
